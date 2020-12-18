@@ -1,4 +1,4 @@
-package pl.edu.pjwstk.jaz;
+package pl.edu.pjwstk.jaz.request;
 
 public class RegisterRequest {
     private String name;
@@ -7,6 +7,10 @@ public class RegisterRequest {
     private String password;
     private String permission;
 
+    public RegisterRequest(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
 
     public void setPermission(String permission) { this.permission = permission; }
 

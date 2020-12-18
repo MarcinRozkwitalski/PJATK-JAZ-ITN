@@ -1,10 +1,12 @@
-package pl.edu.pjwstk.jaz;
+package pl.edu.pjwstk.jaz.controller;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import pl.edu.pjwstk.jaz.exception.UnauthorizedException;
+import pl.edu.pjwstk.jaz.request.LoginRequest;
+import pl.edu.pjwstk.jaz.domain.AuthenticationService;
 
 @RestController
 public class LoginController {
@@ -15,9 +17,8 @@ public class LoginController {
     }
 
     @PostMapping("/login")
-
     public void  login(@RequestBody LoginRequest loginRequest) {
-        //zalogowac
+
         var isLogged = authenticationService.login(loginRequest.getUsername(), loginRequest.getPassword());
         if(!isLogged) {
             throw new UnauthorizedException();

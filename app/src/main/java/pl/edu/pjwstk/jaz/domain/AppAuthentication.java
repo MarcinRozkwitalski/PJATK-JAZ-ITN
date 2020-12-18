@@ -1,4 +1,4 @@
-package pl.edu.pjwstk.jaz;
+package pl.edu.pjwstk.jaz.domain;
 
 import org.springframework.security.authentication.AbstractAuthenticationToken;
 import org.springframework.security.core.GrantedAuthority;
