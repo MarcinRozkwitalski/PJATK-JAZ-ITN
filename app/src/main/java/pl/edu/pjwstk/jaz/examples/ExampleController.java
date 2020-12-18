@@ -1,2 +1,4 @@
-package pl.edu.pjwstk.jaz.examples;public class ExampleController {
+package pl.edu.pjwstk.jaz.examples;
+
+public class ExampleController {
 }

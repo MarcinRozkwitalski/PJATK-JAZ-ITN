@@ -1,30 +1,35 @@
-package pl.edu.pjwstk.jaz;
+package pl.edu.pjwstk.jaz.domain;
 import org.springframework.stereotype.Component;
+import pl.edu.pjwstk.jaz.database.RoleEntity;
 
+import javax.management.relation.Role;
 import java.util.HashSet;
 import java.util.Set;
-
 
 public class User {
     private String name;
     private String lastName;
     private String username;
     private String password;
-    private String permission;
-
     private Set<String> authorities;
 
-
-    public User(String username, String password,String permission) {
+    public User(String username, String password) {
         this.username = username;
         this.password = password;
-        this.permission = permission;
         authorities = new HashSet<>();
+        authorities.add("Everyone");
+    }
+
+    public User(String username, String password,Set<String> roles) {
+        this.username = username;
+        this.password = password;
+        authorities = roles;
     }
 
     public Set<String> getAuthorities() {
         return authorities;
     }
+
 
     public void addAuthorities(String permission){
         authorities.add(permission);
@@ -33,10 +38,6 @@ public class User {
     public String getName() {
         return name;
     }
-
-    public String getPermission() { return permission; }
-
-    public void setPermission(String permission) { this.permission = permission; }
 
     public void setName(String name) {
         this.name = name;
@@ -65,6 +66,4 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
-
-
 }

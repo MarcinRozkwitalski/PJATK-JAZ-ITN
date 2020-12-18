@@ -1,8 +1,9 @@
-package pl.edu.pjwstk.jaz;
+package pl.edu.pjwstk.jaz.config;
 
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import pl.edu.pjwstk.jaz.domain.UserSession;
 import pl.edu.pjwstk.jaz.examples.ExampleFilter;
 
 

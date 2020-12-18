@@ -1,4 +1,4 @@
-package pl.edu.pjwstk.jaz;
+package pl.edu.pjwstk.jaz.domain;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -24,9 +24,6 @@ public class Users {
         return userHashMap.containsKey(username);
     }
 
-    public String getPermission(String username){
-        return userHashMap.get(username).getPermission();
-    }
     public User getUser(String username){return userHashMap.get(username);}
 
     // remove
@@ -42,4 +39,5 @@ public class Users {
     public boolean isEmpty(){
         return userHashMap.size() <= 0;
     }
+
 }

@@ -1,4 +1,4 @@
-package pl.edu.pjwstk.jaz;
+package pl.edu.pjwstk.jaz.average;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,17 +11,21 @@ import javax.persistence.Table;
 public class Test1Entity {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
+
     private Long id;
     private String name;
     public Long getId() {
         return id;
     }
+
     public void setId(Long id) {
         this.id = id;
     }
+
     public String getName() {
         return name;
     }
+
     public void setName(String name) {
         this.name = name;
     }

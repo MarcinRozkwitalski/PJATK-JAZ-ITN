@@ -1,16 +1,16 @@
-package pl.edu.pjwstk.jaz;
+package pl.edu.pjwstk.jaz.controller;
 
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@PreAuthorize("hasAuthority('Admin')")
+
 @RestController
 public class AdminAccess {
-    @GetMapping("auth0/admin")
-    public void Admin(){
 
+    @PreAuthorize("hasRole('Admin')")
+    @GetMapping("/auth0/admin")
+    public String Admin() {
+        return "Admin restricted resource";
     }
-
-
 }
