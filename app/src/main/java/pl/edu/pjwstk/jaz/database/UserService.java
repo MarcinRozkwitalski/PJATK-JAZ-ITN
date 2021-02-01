@@ -39,7 +39,12 @@ public class UserService {
     public void saveUser(String username, String password, Set<String> authorities) {
         UserEntity userEntity = new UserEntity(username,passwordEncoder.encode(password));
 
-        for (String auto: authorities){
+        // ustawienie loginu i hasłą
+//        userEntity.setUsername(username);
+//        userEntity.setPassword(password);
+
+        // wyciaganie roli z set i dodanie do tabeli role
+        for (String auto : authorities){
             System.out.println("role " + auto);
         }
 
@@ -47,31 +52,35 @@ public class UserService {
             RoleEntity roleEntity = new RoleEntity(roles);
             userEntity.getRoles().add(roleEntity);
         }
-
+        //zapisanie użytkownika do bazy danych
+//        entityManager.persist(userEntity);
         this.userRepository.save(userEntity);
     }
 
+    //zwracanie user
     public UserEntity findUserByUsername(String username) {
         return entityManager.createQuery("select ue from UserEntity ue where ue.username = :username", UserEntity.class)
                 .setParameter("username", username)//username
                 .getSingleResult();
     }
 
+    //liczba userów
     public Number users() {
         Query q = entityManager.createQuery("SELECT count(ue) FROM UserEntity ue");
-        Number result = (Number) q.getSingleResult();
-        return result;
+        return (Number) q.getSingleResult();
     }
 
+    //czy jest user
     public boolean userExist(String username) {
         UserEntity name = userRepository.findByUsername(username).orElseGet(UserEntity::new);
         if (name.getUsername() == null)
             return false;
         return true;
     }
-
+    //zwracanie hasła
     public boolean passwordFindUserByUsername(String usernameInput,String password) {
         try {
+
             UserEntity name = userRepository.findByUsername(usernameInput).orElseGet(UserEntity::new);
             if (getPasswordEncoder().matches(password,name.getPassword()) )
                 return true;
@@ -80,5 +89,9 @@ public class UserService {
             System.out.println(exception.getMessage());
         }
         return false;
+    }
+    public Long getIdFromUser(String username){
+        UserEntity name = userRepository.findByUsername(username).orElseGet(UserEntity::new);
+        return name.getId();
     }
 }

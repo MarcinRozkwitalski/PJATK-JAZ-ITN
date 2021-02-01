@@ -1,8 +1,5 @@
 package pl.edu.pjwstk.jaz.domain;
-import org.springframework.stereotype.Component;
-import pl.edu.pjwstk.jaz.database.RoleEntity;
 
-import javax.management.relation.Role;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,6 +9,8 @@ public class User {
     private String username;
     private String password;
     private Set<String> authorities;
+
+
 
     public User(String username, String password) {
         this.username = username;
@@ -65,5 +64,10 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @Override
+    public String toString() {
+        return username;
     }
 }

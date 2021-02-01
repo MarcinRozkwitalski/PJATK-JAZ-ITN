@@ -17,7 +17,6 @@ public class RoleEntity {
 
     }
     public RoleEntity(String role) {
-        super();
         this.role = role;
     }
 

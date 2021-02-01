@@ -5,8 +5,8 @@ import org.apache.http.HttpStatus;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.junit4.SpringRunner;
-import pl.edu.pjwstk.jaz.request.LoginRequest;
-import pl.edu.pjwstk.jaz.IntegrationTest;
+import pl.edu.pjwstk.jaz.domain.LoginRequest;
+
 import static io.restassured.RestAssured.given;
 
 

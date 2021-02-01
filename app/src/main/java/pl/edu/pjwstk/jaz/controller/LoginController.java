@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import pl.edu.pjwstk.jaz.exception.UnauthorizedException;
-import pl.edu.pjwstk.jaz.request.LoginRequest;
+import pl.edu.pjwstk.jaz.domain.LoginRequest;
 import pl.edu.pjwstk.jaz.domain.AuthenticationService;
 
 @RestController

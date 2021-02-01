@@ -1,6 +1,5 @@
 package pl.edu.pjwstk.jaz.domain;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Component;
@@ -19,5 +18,7 @@ public class UserSession {
     public boolean isLoggedIn() {
         return isLogged;
     }
-
+    //tutaj jakas zmienna informacja
+    // która pozwoli okreslic czy uzytkownik jest zalogowany
+    //metody do zarzadzania
 }

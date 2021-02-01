@@ -11,6 +11,7 @@ import static org.hamcrest.Matchers.equalTo;
 @RunWith(SpringRunner.class)
 @IntegrationTest
 public class AverageControllerTestIT {
+
     @Test
     public void should_calculate_simple_average_first() {
         given()
